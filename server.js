@@ -1,6 +1,8 @@
 // require packages
+const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const routes = require('./controllers')
 
 // sequelize
 const sequelize = require('./config/connection');
@@ -18,10 +20,11 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// home route
-app.get('/', (req, res) => {
-    res.render('home');
-})
+// server static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// routing
+app.use(routes);
 
 // start listening
 sequelize.sync({ force: false }).then(() => {
