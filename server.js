@@ -2,6 +2,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 
+// sequelize
+const sequelize = require('./config/connection');
+
 // express app
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,4 +24,6 @@ app.get('/', (req, res) => {
 })
 
 // start listening
-app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+})
