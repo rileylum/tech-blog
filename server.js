@@ -24,6 +24,7 @@ const sess = {
         db: sequelize
     })
 }
+app.use(session(sess));
 
 // handlebars
 const hbs = exphbs.create();
