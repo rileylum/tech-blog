@@ -1,1 +1,10 @@
 <h1>HELLO WORLD!</h1>
+{{#each postData}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Posted by - {{this.user.name}}</h6>
+            <p class="card-text">{{this.content}}</p>
+        </div>
+    </div>
+{{/each}}

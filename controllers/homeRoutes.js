@@ -1,9 +1,15 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 
 // home route
-router.get('/', (req, res) => {
-    res.render('home');
+router.get('/', async (req, res) => {
+    const postData = await Post.findAll({
+        include: [{model: User, attributes: ['name']}],
+        raw:true,
+        nest:true
+    });
+    console.log(postData);
+    res.render('home', {postData});
 })
 
 router.get('/login', (req, res) => {
