@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-3">
+            <h2 class="text-center">Edit Post</h2>
+            <form id="edit-post-form">
+                <input type="hidden" name="post-id" id="post-id" value={{postData.id}}> 
+                <div class="mb-3">
+                    <label for="post-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="post-title" value="{{postData.title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="post-content" class="form-label">Content</label>
+                    <textarea class="form-control" id="post-content" rows="3">{{postData.content}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary col-12">Update Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/editPost.js"></script>
