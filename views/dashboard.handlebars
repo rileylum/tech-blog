@@ -1,5 +1,13 @@
 <div class="container">
     <h2>HELLO DASHBOARD!</h2>
+    {{#each userPostData}}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.content}}</p>
+            </div>
+        </div>
+    {{/each}}
 </div>
 <div>
     <button class="btn btn-primary">Create New Post</button>
