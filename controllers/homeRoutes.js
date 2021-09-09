@@ -14,4 +14,13 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
+router.get('/dashboard', (req, res) => {
+    if(req.session.logged_in){
+       return res.render('dashboard');
+    } else {
+        res.redirect('/login');
+    }
+    
+})
+
 module.exports = router;
