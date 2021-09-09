@@ -25,6 +25,11 @@ const sess = {
     })
 }
 app.use(session(sess));
+// middleware to include session in all handlebars renders
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
 
 // handlebars
 const hbs = exphbs.create();
