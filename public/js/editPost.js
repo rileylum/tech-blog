@@ -6,9 +6,10 @@ const loginFormHandler = async(event) => {
     const content = document.querySelector('#post-content').value.trim();
 
     if (title && content) {
-        const url = 'api/posts/edit/'+id
+        const url = window.location.origin + '/api/posts/edit/'+id;
+        console.log(url);
         const response = await fetch(url, {
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify({id, title, content}),
             headers: { 'Content-Type': 'application/json'}
         });
