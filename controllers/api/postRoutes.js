@@ -23,8 +23,6 @@ router.patch('/edit/:id', async (req, res) => {
             title: req.body.title,
             content: req.body.content,
         };
-        console.log(postInput);
-        console.log(req.params.id);
         await Post.update(postInput, {
             where: {
                 id: req.params.id

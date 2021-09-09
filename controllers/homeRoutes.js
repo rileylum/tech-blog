@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
         raw:true,
         nest:true
     });
-    console.log(postData);
     res.render('home', {postData});
 })
 
@@ -29,7 +28,6 @@ router.get('/dashboard', async (req, res) => {
             },
             raw: true
         });
-        console.log(userPostData);
        return res.render('dashboard', {userPostData});
     } else {
         res.redirect('/login');

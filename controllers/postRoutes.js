@@ -13,7 +13,6 @@ router.get('/new', (req, res) => {
 router.get('/edit/:id', async(req, res) => {
     if(req.session.logged_in){
         const postData = await Post.findByPk(req.params.id, {raw:true});
-        console.log(postData);
         res.render('editPost', {postData});
      } else {
          res.redirect('/login');
