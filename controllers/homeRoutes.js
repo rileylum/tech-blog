@@ -4,11 +4,14 @@ const { Post, User } = require('../models');
 // home route
 router.get('/', async (req, res) => {
     const postData = await Post.findAll({
-        include: [{model: User, attributes: ['name']}],
+        include: [{model: User, attributes: ['id', 'name']}],
         raw:true,
         nest:true
     });
-    res.render('home', {postData});
+    const currentUser = String(req.session.user_id);
+
+    console.log(currentUser);
+    res.render('home', {postData, currentUser});
 })
 
 router.get('/login', (req, res) => {
@@ -28,7 +31,7 @@ router.get('/dashboard', async (req, res) => {
             },
             raw: true
         });
-       return res.render('dashboard', {userPostData});
+       return res.render('dashboard', {userPostData, currentUser: req.session.user_id});
     } else {
         res.redirect('/login');
     }

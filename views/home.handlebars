@@ -1,10 +1,14 @@
 <h1>HELLO WORLD!</h1>
+<p>{{currentUser}}</p>
 {{#each postData}}
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{this.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Posted by - {{this.user.name}}</h6>
             <p class="card-text">{{this.content}}</p>
+            {{#if (belongsTo ../currentUser this.user.id)}}
+            <a href="/posts/edit/{{this.id}}" class="btn btn-primary">Edit</a>
+            {{/if}}
         </div>
     </div>
 {{/each}}
