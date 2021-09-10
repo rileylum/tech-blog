@@ -1,14 +1,18 @@
 <div class="container">
-    <h2>HELLO DASHBOARD!</h2>
-    {{#each userPostData}}
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{this.title}}</h5>
-                <p class="card-text">{{this.content}}</p>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-3">
+            <div>
+                <a href="/posts/new" class="btn btn-lg btn-primary col-12 mb-3">Create New Post</a>
             </div>
+            {{#each userPostData}}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text">{{this.content}}</p>
+                        <a href="/posts/edit/{{this.id}}" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+            {{/each}}
         </div>
-    {{/each}}
-</div>
-<div>
-    <a href="/posts/new" class="btn btn-primary">Create New Post</a>
+    </div>
 </div>
