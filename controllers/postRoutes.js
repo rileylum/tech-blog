@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post} = require('../models');
+const { User, Post} = require('../models');
 
 router.get('/new', (req, res) => {
     if(req.session.logged_in){
@@ -8,6 +8,15 @@ router.get('/new', (req, res) => {
         res.redirect('/login');
     }
     
+})
+
+router.get('/view/:id', async(req, res) => {
+    const postData = await Post.findByPk(req.params.id, {
+        include: [{model: User, attributes: ['id', 'name']}],
+        raw:true, 
+        nest:true
+        });
+    res.render('viewPost', {postData, currentUser: req.session.user_id});
 })
 
 router.get('/edit/:id', async(req, res) => {

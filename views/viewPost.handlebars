@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{postData.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Posted by - {{postData.user.name}} ({{postData.date_created}})</h6>
+                        <p class="card-text">{{postData.content}}</p>
+                        {{#if (belongsTo currentUser postData.user.id)}}
+                        <a href="/posts/edit/{{postData.id}}" class="btn btn-primary">Edit</a>
+                        {{/if}}
+                    </div>
+                </div>
+        </div>
+    </div> 
+</div>
