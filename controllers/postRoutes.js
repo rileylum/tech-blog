@@ -28,4 +28,12 @@ router.get('/edit/:id', async(req, res) => {
      }
 })
 
+router.get('/:id/comment', async(req, res) => {
+    if(req.session.logged_in){
+        res.render('comment');
+    } else {
+        res.redirect('/login');
+    }
+})
+
 module.exports = router;

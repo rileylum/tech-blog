@@ -10,6 +10,7 @@
                         {{#if (belongsTo currentUser postData.user.id)}}
                         <a href="/posts/edit/{{postData.id}}" class="btn btn-primary">Edit</a>
                         {{/if}}
+                        <a href="/posts/{{postData.id}}/comment" class="btn btn-success">Add Comment</a>
                     </div>
                 </div>
         </div>
