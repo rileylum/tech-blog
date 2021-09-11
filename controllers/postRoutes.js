@@ -29,6 +29,15 @@ router.get('/edit/:id', async(req, res) => {
      }
 })
 
+router.get('/delete/:id', async(req, res) => {
+    if(req.session.logged_in){
+        await Post.destroy({where: {id: req.params.id}});
+        res.redirect('/dashboard');
+     } else {
+         res.redirect('/login');
+     }
+})
+
 router.get('/:id/comment', async(req, res) => {
     if(req.session.logged_in){
         res.render('comment', {post_id: req.params.id});

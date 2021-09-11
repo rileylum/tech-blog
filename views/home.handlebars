@@ -9,6 +9,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">Posted by - {{this.user.name}} ({{this.date_created}})</h6>
                         {{#if (belongsTo ../currentUser this.user.id)}}
                         <a href="/posts/edit/{{this.id}}" class="btn btn-primary">Edit</a>
+                        <a href="/posts/delete/{{this.id}}" class="btn btn-danger">Delete Post</a>
                         {{/if}}
                         <a href="/posts/view/{{this.id}}" class="btn btn-success">View Post</a>
                     </div>
