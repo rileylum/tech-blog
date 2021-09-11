@@ -16,7 +16,7 @@ router.post('/new', async (req, res) => {
         res.status(400).json(err.stack)
     }
 });
-
+// update post
 router.patch('/edit/:id', async (req, res) => {
     try {
         const postInput = {
