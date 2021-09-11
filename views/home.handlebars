@@ -2,6 +2,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 mt-3">
+            {{#unless postData}}
+                <h2>There are no posts to display, create your own via the Dashboard!</h2>
+            {{/unless}}
             {{#each postData}}
                 <div class="card mb-3">
                     <div class="card-body">
