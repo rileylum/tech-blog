@@ -9,6 +9,7 @@
                     <p class="card-text">{{postData.content}}</p>
                     {{#if (belongsTo currentUser postData.user.id)}}
                     <a href="/posts/edit/{{postData.id}}" class="btn btn-primary">Edit</a>
+                    <a href="/posts/delete/{{postData.id}}" class="btn btn-danger">Delete Post</a>
                     {{/if}}
                     <a href="/posts/{{postData.id}}/comment" class="btn btn-success">Add Comment</a>
                 </div>
