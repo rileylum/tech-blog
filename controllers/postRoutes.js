@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post} = require('../models');
+const { User, Post, Comment} = require('../models');
 
 router.get('/new', (req, res) => {
     if(req.session.logged_in){
@@ -16,7 +16,8 @@ router.get('/view/:id', async(req, res) => {
         raw:true, 
         nest:true
         });
-    res.render('viewPost', {postData, currentUser: req.session.user_id});
+    const commentData = await Comment.findAll({where: post_id = postData.id, include: [{model: User, attributes: ['id', 'name']}], raw:true, nest:true});
+    res.render('viewPost', {postData, currentUser: req.session.user_id, commentData});
 })
 
 router.get('/edit/:id', async(req, res) => {
