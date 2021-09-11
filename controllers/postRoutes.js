@@ -30,7 +30,7 @@ router.get('/edit/:id', async(req, res) => {
 
 router.get('/:id/comment', async(req, res) => {
     if(req.session.logged_in){
-        res.render('comment');
+        res.render('comment', {post_id: req.params.id});
     } else {
         res.redirect('/login');
     }
