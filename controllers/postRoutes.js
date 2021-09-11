@@ -16,7 +16,8 @@ router.get('/view/:id', async(req, res) => {
         raw:true, 
         nest:true
         });
-    const commentData = await Comment.findAll({where: post_id = postData.id, include: [{model: User, attributes: ['id', 'name']}], raw:true, nest:true});
+    const commentData = await Comment.findAll({where: {post_id: postData.id}, include: [{model: User, attributes: ['id', 'name']}], raw:true, nest:true});
+    console.log(commentData);
     res.render('viewPost', {postData, currentUser: req.session.user_id, commentData});
 })
 
