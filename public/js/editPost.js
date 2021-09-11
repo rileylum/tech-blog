@@ -7,7 +7,6 @@ const loginFormHandler = async(event) => {
 
     if (title && content) {
         const url = window.location.origin + '/api/posts/edit/'+id;
-        console.log(url);
         const response = await fetch(url, {
             method: 'PATCH',
             body: JSON.stringify({id, title, content}),

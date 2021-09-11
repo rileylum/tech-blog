@@ -9,8 +9,6 @@ router.get('/', async (req, res) => {
         nest:true
     });
     const currentUser = String(req.session.user_id);
-
-    console.log(currentUser);
     res.render('home', {postData, currentUser});
 })
 
